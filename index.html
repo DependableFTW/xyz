@@ -811,7 +811,7 @@
             Tap on the envelope below to break the wax seal and unfold my private letter to you.
           </p>
 
-          <div class="envelope-3d-wrap" style="max-width: 520px; margin: 0 auto;">
+          <div class="envelope-3d-wrap" style="max-width: 520px; margin: 0 auto 40px auto;">
             <div id="envelopeFlipCard" class="envelope-card glass-surface" style="padding: 36px 24px; cursor: pointer; border: 1px solid var(--champagne);" onclick="toggleEnvelopeFlip()">
               
               <!-- Front Face -->
@@ -847,7 +847,29 @@
 
             </div>
           </div>
-          <p style="font-size: 11px; color: rgba(253, 251, 247, 0.4); text-transform: uppercase; letter-spacing: 2px; margin-top: 20px;">
+
+          <!-- GRAND FINALE FILM SHOWCASE -->
+          <div style="max-width: 740px; margin: 30px auto 0 auto; text-align: center; position: relative;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 9999px; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.4); color: var(--champagneLight); font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 16px;">
+              ✨ Our Forever Reel ✨
+            </div>
+            
+            <h4 class="font-serif" style="font-size: clamp(22px, 3.5vw, 30px); color: var(--pearlWhite); margin-bottom: 8px;">
+              The Final Film For Ishika
+            </h4>
+            <p class="font-serif" style="font-size: 14px; color: var(--roseMist); font-style: italic; margin-bottom: 22px;">
+              "No matter what the world may say, I chose you then... I choose today."
+            </p>
+
+            <!-- Video Player with Golden Aura Frame -->
+            <div style="position: relative; padding: 8px; border-radius: 24px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.6), rgba(135, 18, 40, 0.4), rgba(212, 175, 55, 0.4)); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 45px rgba(212, 175, 55, 0.25);">
+              <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 18px; overflow: hidden; background: #000;">
+                <iframe id="finalDriveIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+
+          <p style="font-size: 11px; color: rgba(253, 251, 247, 0.4); text-transform: uppercase; letter-spacing: 2px; margin-top: 28px;">
             Tap letter anytime to fold back
           </p>
         </div>
@@ -967,6 +989,14 @@
           const heroIframe = document.getElementById('heroDriveIframe');
           if (heroIframe && (!heroIframe.src || heroIframe.src === '' || heroIframe.src === window.location.href)) {
             heroIframe.src = "https://drive.google.com/file/d/1jL3qyc2aMQo8XPV04fr37W0aeggGn3D6/preview?autoplay=1";
+          }
+        }
+
+        // Only load and play the final grand finale film once Chapter 4 has been solved!
+        if (chNum === 4) {
+          const finalIframe = document.getElementById('finalDriveIframe');
+          if (finalIframe && (!finalIframe.src || finalIframe.src === '' || finalIframe.src === window.location.href)) {
+            finalIframe.src = "https://drive.google.com/file/d/1GOYo8JzVH6bYG-JqzTMrbdb5jRW_1ouA/preview?autoplay=1";
           }
         }
 
