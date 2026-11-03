@@ -34,6 +34,33 @@
       font-family: "Georgia", "Cambria", "Times New Roman", serif;
     }
 
+    /* Responsive adjustments for mobile and laptop */
+    @media (max-width: 640px) {
+      .glass-surface {
+        padding: 18px 14px !important;
+        border-radius: 18px !important;
+      }
+      .glass-surface-lock {
+        padding: 26px 18px !important;
+        border-radius: 20px !important;
+      }
+      .nav-container {
+        padding: 8px 14px !important;
+      }
+      .input-wrapper {
+        flex-direction: column !important;
+      }
+      .input-wrapper .btn-gold {
+        position: static !important;
+        width: 100% !important;
+        margin-top: 8px !important;
+        padding: 12px !important;
+      }
+      .input-wrapper input {
+        padding-right: 14px !important;
+      }
+    }
+
     /* Custom Scrollbar */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: var(--obsidian); }
@@ -65,20 +92,6 @@
       z-index: 0;
     }
 
-    /* 3D Envelope Flip Card */
-    .envelope-3d-wrap { perspective: 1200px; }
-    .envelope-card {
-      transition: transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1);
-      transform-style: preserve-3d;
-      position: relative;
-    }
-    .envelope-card.is-open { transform: rotateY(180deg); }
-    .envelope-front, .envelope-back {
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-    }
-    .envelope-back { transform: rotateY(180deg); }
-
     /* Buttons & Inputs */
     .btn-gold {
       background: linear-gradient(135deg, #d4af37, #fae392, #d4af37);
@@ -99,7 +112,7 @@
       border-radius: 12px;
       padding: 12px 16px;
       color: #fdfbf7;
-      font-size: 14px;
+      font-size: 15px;
       outline: none;
       transition: border-color 0.2s;
     }
@@ -126,20 +139,20 @@
 <body>
 
   <!-- MASTER PRIVACY LOCK SCREEN (PREVENTS STRANGERS FROM VIEWING) -->
-  <div id="masterPrivacyScreen" style="position: fixed; inset: 0; z-index: 9999; background: #0a0508; display: flex; align-items: center; justify-content: center; padding: 20px; transition: opacity 0.6s ease;">
-    <div class="glass-surface-lock" style="max-width: 440px; width: 100%; padding: 36px 28px; text-align: center; position: relative; box-shadow: 0 25px 60px rgba(0,0,0,0.9);">
+  <div id="masterPrivacyScreen" style="position: fixed; inset: 0; z-index: 9999; background: #0a0508; display: flex; align-items: center; justify-content: center; padding: 16px; transition: opacity 0.6s ease;">
+    <div class="glass-surface-lock" style="max-width: 440px; width: 100%; padding: 36px 24px; text-align: center; position: relative; box-shadow: 0 25px 60px rgba(0,0,0,0.9);">
       
       <!-- Wax seal badge icon -->
-      <div class="pulse-glow" style="width: 76px; height: 76px; border-radius: 50%; background: linear-gradient(135deg, var(--crimsonVelvet), var(--crimsonGlow), var(--champagne)); margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(212, 175, 55, 0.5); box-shadow: 0 10px 30px rgba(232, 62, 92, 0.4);">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <div class="pulse-glow" style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--crimsonVelvet), var(--crimsonGlow), var(--champagne)); margin: 0 auto 18px auto; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(212, 175, 55, 0.5); box-shadow: 0 10px 30px rgba(232, 62, 92, 0.4);">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
           <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
         </svg>
       </div>
       
       <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: var(--champagne); font-weight: 700; font-family: monospace;">Private Sanctuary</span>
-      <h2 class="font-serif" style="font-size: 32px; color: var(--pearlWhite); margin: 6px 0 10px 0; font-weight: normal;">Only For Ishika</h2>
-      <p class="font-serif" style="font-size: 14px; color: rgba(253, 251, 247, 0.7); font-style: italic; margin-bottom: 24px;">
+      <h2 class="font-serif" style="font-size: clamp(26px, 6vw, 34px); color: var(--pearlWhite); margin: 6px 0 10px 0; font-weight: normal;">Only For Ishika</h2>
+      <p class="font-serif" style="font-size: 14px; color: rgba(253, 251, 247, 0.7); font-style: italic; margin-bottom: 22px;">
         "This sanctuary of memories was built for one person only. Enter the master key to enter."
       </p>
 
@@ -155,7 +168,7 @@
         <div id="masterPassFeedback" style="font-size: 13px; font-weight: 600; min-height: 20px;"></div>
       </div>
 
-      <p style="font-size: 11px; color: rgba(253, 251, 247, 0.4); margin-top: 18px; letter-spacing: 2px; text-transform: uppercase; font-family: monospace;">
+      <p style="font-size: 11px; color: rgba(253, 251, 247, 0.4); margin-top: 16px; letter-spacing: 2px; text-transform: uppercase; font-family: monospace;">
         Authorized Access Only • 04-11-2026
       </p>
     </div>
@@ -165,32 +178,32 @@
   <canvas id="starsCanvas" style="position: fixed; inset: 0; pointer-events: none; z-index: 1;"></canvas>
 
   <!-- Ambient Light Orbs -->
-  <div class="radial-glow pulse-glow" style="width: 380px; height: 380px; background: rgba(135, 18, 40, 0.35); top: -60px; left: -100px;"></div>
-  <div class="radial-glow pulse-glow" style="width: 440px; height: 440px; background: rgba(212, 175, 55, 0.2); top: 40%; right: -120px;"></div>
+  <div class="radial-glow pulse-glow" style="width: 320px; height: 320px; background: rgba(135, 18, 40, 0.35); top: -60px; left: -100px;"></div>
+  <div class="radial-glow pulse-glow" style="width: 360px; height: 360px; background: rgba(212, 175, 55, 0.2); top: 40%; right: -120px;"></div>
 
   <!-- TOP HUD BAR -->
-  <header style="position: fixed; top: 16px; left: 0; right: 0; margin: 0 auto; width: 92%; max-width: 1040px; z-index: 50;">
-    <div class="glass-surface" style="padding: 10px 22px; display: flex; align-items: center; justify-content: space-between; border-radius: 9999px;">
+  <header style="position: fixed; top: 12px; left: 0; right: 0; margin: 0 auto; width: 94%; max-width: 1040px; z-index: 50;">
+    <div class="glass-surface nav-container" style="padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; border-radius: 9999px;">
       
       <!-- Brand -->
-      <a href="#hero" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-        <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--champagne), var(--crimsonGlow)); display: flex; align-items: center; justify-content: center;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" stroke="none">
+      <a href="#hero" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+        <div style="width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--champagne), var(--crimsonGlow)); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff" stroke="none">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
           </svg>
         </div>
-        <span class="font-serif" style="font-size: 19px; letter-spacing: 2px; color: var(--champagneLight); font-weight: 500;">
+        <span class="font-serif" style="font-size: clamp(16px, 3.5vw, 19px); letter-spacing: 1.5px; color: var(--champagneLight); font-weight: 500;">
           Ayush & Ishika
         </span>
       </a>
 
       <!-- Quick Chapter Progress Indicators -->
       <div style="display: flex; align-items: center; gap: 8px;">
-        <button id="audioToggleBtn" title="Play Romantic Melody" style="padding: 7px 14px; border-radius: 9999px; font-size: 12px; font-weight: 600; border: 1px solid rgba(212, 175, 55, 0.5); background: rgba(20, 8, 14, 0.8); color: var(--champagneLight); cursor: pointer; display: flex; align-items: center; gap: 6px;">
+        <button id="audioToggleBtn" title="Play Romantic Melody" style="padding: 6px 12px; border-radius: 9999px; font-size: 11px; font-weight: 600; border: 1px solid rgba(212, 175, 55, 0.5); background: rgba(20, 8, 14, 0.8); color: var(--champagneLight); cursor: pointer; display: flex; align-items: center; gap: 5px;">
           <span id="audioIcon">🎵</span>
           <span id="audioLabel">Music</span>
         </button>
-        <button onclick="triggerPetalConfetti()" title="Shower of Love" style="width: 34px; height: 34px; border-radius: 50%; background: rgba(135, 18, 40, 0.5); border: 1px solid var(--crimsonGlow); color: var(--crimsonGlow); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px;">
+        <button onclick="triggerPetalConfetti()" title="Shower of Love" style="width: 32px; height: 32px; border-radius: 50%; background: rgba(135, 18, 40, 0.5); border: 1px solid var(--crimsonGlow); color: var(--crimsonGlow); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0;">
           ❤️
         </button>
       </div>
@@ -198,70 +211,70 @@
   </header>
 
   <!-- ================= MAIN CONTENT ================= -->
-  <main style="position: relative; z-index: 10; max-width: 1100px; margin: 0 auto; padding: 0 16px;">
+  <main style="position: relative; z-index: 10; max-width: 1040px; margin: 0 auto; padding: 0 14px;">
 
     <!-- HERO SECTION -->
-    <section id="hero" style="min-h: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 130px 16px 60px 16px;">
-      <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 9999px; border: 1px solid rgba(212, 175, 55, 0.4); background: rgba(212, 175, 55, 0.1); color: var(--champagneLight); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">
+    <section id="hero" style="min-height: 88vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 110px 10px 50px 10px;">
+      <div style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 9999px; border: 1px solid rgba(212, 175, 55, 0.4); background: rgba(212, 175, 55, 0.1); color: var(--champagneLight); font-size: clamp(10px, 2.5vw, 12px); letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 20px;">
         ✨ A Journey of Memories & Love — For Ishika ✨
       </div>
 
-      <h1 class="font-serif" style="font-size: clamp(34px, 7vw, 68px); font-weight: normal; line-height: 1.15; color: var(--pearlWhite); margin-bottom: 20px;">
+      <h1 class="font-serif" style="font-size: clamp(30px, 6.5vw, 62px); font-weight: normal; line-height: 1.2; color: var(--pearlWhite); margin-bottom: 18px;">
         To Unlock My Heart, <br>
         <span style="font-style: italic; background: linear-gradient(90deg, var(--champagneLight), var(--roseMist), var(--crimsonGlow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
           Answer Our Memories.
         </span>
       </h1>
 
-      <p style="color: rgba(253, 251, 247, 0.75); font-size: clamp(15px, 2.5vw, 19px); max-width: 650px; margin: 0 auto 32px auto; line-height: 1.6;">
+      <p style="color: rgba(253, 251, 247, 0.75); font-size: clamp(14px, 2.3vw, 18px); max-width: 600px; margin: 0 auto 28px auto; line-height: 1.6;">
         Every milestone in our story holds a sacred key. Enter the secret memories we both carry in our hearts to reveal each chapter.
       </p>
 
       <!-- Overall Quest Progress Card -->
-      <div class="glass-surface" style="width: 100%; max-width: 440px; padding: 20px; margin-bottom: 30px;">
-        <div style="display: flex; justify-content: space-between; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;">
+      <div class="glass-surface" style="width: 100%; max-width: 440px; padding: 18px; margin-bottom: 26px;">
+        <div style="display: flex; justify-content: space-between; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;">
           <span style="color: rgba(253, 251, 247, 0.7);">Chapters Unlocked</span>
           <span id="progressText" style="color: var(--champagneLight); font-weight: 700;">0 / 4 Unlocked</span>
         </div>
-        <div style="width: 100%; height: 10px; background: #0a0508; border-radius: 9999px; overflow: hidden; border: 1px solid rgba(253, 251, 247, 0.1); padding: 1px;">
+        <div style="width: 100%; height: 9px; background: #0a0508; border-radius: 9999px; overflow: hidden; border: 1px solid rgba(253, 251, 247, 0.1); padding: 1px;">
           <div id="questProgressBar" style="height: 100%; width: 0%; background: linear-gradient(90deg, var(--crimsonGlow), var(--roseMist), var(--champagne)); border-radius: 9999px; transition: width 0.7s ease;"></div>
         </div>
       </div>
 
-      <a href="#chapter-1" class="btn-gold" style="padding: 14px 32px; font-size: 14px; letter-spacing: 1px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+      <a href="#chapter-1" class="btn-gold" style="padding: 13px 28px; font-size: 13px; letter-spacing: 1px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
         🔒 Begin With Chapter One
       </a>
     </section>
 
     <!-- CHAPTER 1: THE MAIN RECORDED VIDEO -->
-    <section id="chapter-1" style="padding: 70px 0; scroll-margin-top: 90px;">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+    <section id="chapter-1" style="padding: 55px 0; scroll-margin-top: 80px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
         <div>
-          <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne); font-weight: 700;">
+          <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne); font-weight: 700;">
             Chapter One
           </span>
-          <h2 class="font-serif" style="font-size: clamp(26px, 4vw, 36px); color: var(--pearlWhite);">The Recorded Film</h2>
+          <h2 class="font-serif" style="font-size: clamp(24px, 4.5vw, 34px); color: var(--pearlWhite);">The Recorded Film</h2>
         </div>
         <div id="statusBadge1" style="padding: 5px 14px; border-radius: 9999px; font-size: 12px; border: 1px solid rgba(244, 202, 195, 0.2); color: var(--roseMist); background: var(--nightVelvet);">
           🔒 Locked
         </div>
       </div>
 
-      <div class="glass-surface" id="cardContainer1" style="padding: 24px; min-height: 380px;">
+      <div class="glass-surface" id="cardContainer1" style="padding: 24px; min-height: 340px;">
         <!-- Locked View -->
-        <div id="lockView1" style="text-align: center; padding: 40px 16px; display: flex; flex-direction: column; align-items: center;">
-          <div class="pulse-glow" style="width: 68px; height: 68px; border-radius: 50%; background: rgba(135, 18, 40, 0.4); border: 1px solid var(--crimsonGlow); display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 18px;">
+        <div id="lockView1" style="text-align: center; padding: 30px 10px; display: flex; flex-direction: column; align-items: center;">
+          <div class="pulse-glow" style="width: 64px; height: 64px; border-radius: 50%; background: rgba(135, 18, 40, 0.4); border: 1px solid var(--crimsonGlow); display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 16px;">
             🎬
           </div>
-          <h3 class="font-serif" style="font-size: clamp(22px, 3.5vw, 30px); margin-bottom: 8px;">A Film Recorded Only For You</h3>
-          <p class="font-serif" style="font-size: 18px; color: var(--champagneLight); font-style: italic; max-width: 500px; margin-bottom: 24px;">
+          <h3 class="font-serif" style="font-size: clamp(20px, 4vw, 28px); margin-bottom: 8px;">A Film Recorded Only For You</h3>
+          <p class="font-serif" style="font-size: clamp(15px, 2.8vw, 18px); color: var(--champagneLight); font-style: italic; max-width: 500px; margin-bottom: 22px;">
             "What was the date when we went on our 1st Movie date? 🎬"
           </p>
 
           <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 10px;">
-            <div style="position: relative;">
-              <input type="text" id="answerInput1" placeholder="Type our special date..." class="input-field" style="padding-right: 100px;" onkeydown="if(event.key === 'Enter') submitDirectAnswer(1)">
-              <button onclick="submitDirectAnswer(1)" class="btn-gold" style="position: absolute; right: 6px; top: 6px; bottom: 6px; padding: 0 16px; font-size: 12px;">
+            <div class="input-wrapper" style="position: relative; display: flex; width: 100%;">
+              <input type="text" id="answerInput1" placeholder="Type our special date..." class="input-field" style="padding-right: 90px;" onkeydown="if(event.key === 'Enter') submitDirectAnswer(1)">
+              <button onclick="submitDirectAnswer(1)" class="btn-gold" style="position: absolute; right: 5px; top: 5px; bottom: 5px; padding: 0 16px; font-size: 12px;">
                 Unlock
               </button>
             </div>
@@ -277,8 +290,8 @@
 
         <!-- Unlocked View -->
         <div id="unlockedView1" class="hidden">
-          <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid rgba(253, 251, 247, 0.1); margin-bottom: 16px;">
-            <span class="font-serif" style="font-size: 20px; color: var(--champagneLight);">For Ishika — The One I Chose & Choose Today</span>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid rgba(253, 251, 247, 0.1); margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+            <span class="font-serif" style="font-size: clamp(16px, 3.5vw, 20px); color: var(--champagneLight);">For Ishika — The One I Chose & Choose Today</span>
             <span style="font-size: 12px; color: #4ade80;">● Online Stream</span>
           </div>
           <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 15px 35px rgba(0,0,0,0.8);">
@@ -290,34 +303,34 @@
     </section>
 
     <!-- CHAPTER 2: THE POETRY MANUSCRIPT -->
-    <section id="chapter-2" style="padding: 70px 0; scroll-margin-top: 90px;">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+    <section id="chapter-2" style="padding: 55px 0; scroll-margin-top: 80px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
         <div>
-          <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne); font-weight: 700;">
+          <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne); font-weight: 700;">
             Chapter Two
           </span>
-          <h2 class="font-serif" style="font-size: clamp(26px, 4vw, 36px); color: var(--pearlWhite);">Our Story — A Poem for Ishika</h2>
+          <h2 class="font-serif" style="font-size: clamp(24px, 4.5vw, 34px); color: var(--pearlWhite);">Our Story — A Poem for Ishika</h2>
         </div>
         <div id="statusBadge2" style="padding: 5px 14px; border-radius: 9999px; font-size: 12px; border: 1px solid rgba(244, 202, 195, 0.2); color: var(--roseMist); background: var(--nightVelvet);">
           🔒 Locked
         </div>
       </div>
 
-      <div class="glass-surface" id="cardContainer2" style="padding: 24px; min-height: 380px;">
+      <div class="glass-surface" id="cardContainer2" style="padding: 24px; min-height: 340px;">
         <!-- Locked View -->
-        <div id="lockView2" style="text-align: center; padding: 40px 16px; display: flex; flex-direction: column; align-items: center;">
-          <div class="pulse-glow" style="width: 68px; height: 68px; border-radius: 50%; background: rgba(135, 18, 40, 0.4); border: 1px solid var(--crimsonGlow); display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 18px;">
+        <div id="lockView2" style="text-align: center; padding: 30px 10px; display: flex; flex-direction: column; align-items: center;">
+          <div class="pulse-glow" style="width: 64px; height: 64px; border-radius: 50%; background: rgba(135, 18, 40, 0.4); border: 1px solid var(--crimsonGlow); display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 16px;">
             ✒️
           </div>
-          <h3 class="font-serif" style="font-size: clamp(22px, 3.5vw, 30px); margin-bottom: 8px;">13 Chapters Written With All My Heart</h3>
-          <p class="font-serif" style="font-size: 18px; color: var(--champagneLight); font-style: italic; max-width: 500px; margin-bottom: 24px;">
+          <h3 class="font-serif" style="font-size: clamp(20px, 4vw, 28px); margin-bottom: 8px;">13 Chapters Written With All My Heart</h3>
+          <p class="font-serif" style="font-size: clamp(15px, 2.8vw, 18px); color: var(--champagneLight); font-style: italic; max-width: 500px; margin-bottom: 22px;">
             "What was the First thing I ever ordered for you, without even asking you, whether you want or not? 🍹"
           </p>
 
           <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 10px;">
-            <div style="position: relative;">
-              <input type="text" id="answerInput2" placeholder="Type your answer here..." class="input-field" style="padding-right: 100px;" onkeydown="if(event.key === 'Enter') submitDirectAnswer(2)">
-              <button onclick="submitDirectAnswer(2)" class="btn-gold" style="position: absolute; right: 6px; top: 6px; bottom: 6px; padding: 0 16px; font-size: 12px;">
+            <div class="input-wrapper" style="position: relative; display: flex; width: 100%;">
+              <input type="text" id="answerInput2" placeholder="Type your answer here..." class="input-field" style="padding-right: 90px;" onkeydown="if(event.key === 'Enter') submitDirectAnswer(2)">
+              <button onclick="submitDirectAnswer(2)" class="btn-gold" style="position: absolute; right: 5px; top: 5px; bottom: 5px; padding: 0 16px; font-size: 12px;">
                 Unlock
               </button>
             </div>
@@ -335,8 +348,8 @@
         <div id="unlockedView2" class="hidden" style="padding: 10px 0;">
           <div style="border-bottom: 1px solid rgba(253, 251, 247, 0.1); padding-bottom: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
             <div>
-              <h3 class="font-serif" style="font-size: 26px; color: var(--pearlWhite);">Our Story — A Poem for Ishika</h3>
-              <p class="font-serif" style="font-size: 14px; color: var(--champagne); font-style: italic;">"Written with all my heart — for Ishika"</p>
+              <h3 class="font-serif" style="font-size: clamp(20px, 4vw, 26px); color: var(--pearlWhite);">Our Story — A Poem for Ishika</h3>
+              <p class="font-serif" style="font-size: 13px; color: var(--champagne); font-style: italic;">"Written with all my heart — for Ishika"</p>
             </div>
             <div style="display: flex; gap: 8px;">
               <button onclick="adjustPoemFontSize(-1)" style="padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(253, 251, 247, 0.2); background: transparent; color: #fff; cursor: pointer;">A-</button>
@@ -344,10 +357,10 @@
             </div>
           </div>
 
-          <div id="fullPoemManuscript" class="font-serif" style="font-size: 18px; line-height: 1.8; max-height: 650px; overflow-y: auto; padding-right: 14px; display: flex; flex-direction: column; gap: 32px;">
+          <div id="fullPoemManuscript" class="font-serif" style="font-size: 17px; line-height: 1.8; max-height: 650px; overflow-y: auto; padding-right: 10px; display: flex; flex-direction: column; gap: 28px;">
             
             <!-- Opening Reflection -->
-            <div style="background: rgba(20, 8, 14, 0.7); padding: 22px; border-radius: 16px; border: 1px solid rgba(212, 175, 55, 0.3);">
+            <div style="background: rgba(20, 8, 14, 0.7); padding: 18px; border-radius: 16px; border: 1px solid rgba(212, 175, 55, 0.3);">
               <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne); font-family: monospace;">Opening Reflection</span>
               <p style="font-style: italic; color: var(--roseMist); margin-top: 10px; line-height: 1.7;">
                 We fight, we fall, we heal, we stay,<br>
@@ -362,8 +375,8 @@
             </div>
 
             <!-- Chapter I -->
-            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
-              <h4 style="color: var(--champagneLight); font-size: 20px; font-weight: normal; margin-bottom: 4px;">CHAPTER I — THE TWELFTH GRADE GAZE</h4>
+            <div style="border-left: 2px solid var(--champagne); padding-left: 16px;">
+              <h4 style="color: var(--champagneLight); font-size: clamp(17px, 3.5vw, 20px); font-weight: normal; margin-bottom: 4px;">CHAPTER I — THE TWELFTH GRADE GAZE</h4>
               <p style="font-size: 13px; color: rgba(253, 251, 247, 0.6); font-style: italic; margin-bottom: 12px;">“Well, this story is about a person, whom I saw for the first time in my 12th standard...”</p>
               <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
                 I saw her first in twelfth-grade light,<br>
@@ -382,8 +395,8 @@
             </div>
 
             <!-- Chapter II -->
-            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
-              <h4 style="color: var(--champagneLight); font-size: 20px; font-weight: normal; margin-bottom: 4px;">CHAPTER II — THE FAREWELL PHOTOGRAPH</h4>
+            <div style="border-left: 2px solid var(--champagne); padding-left: 16px;">
+              <h4 style="color: var(--champagneLight); font-size: clamp(17px, 3.5vw, 20px); font-weight: normal; margin-bottom: 4px;">CHAPTER II — THE FAREWELL PHOTOGRAPH</h4>
               <p style="font-size: 13px; color: rgba(253, 251, 247, 0.6); font-style: italic; margin-bottom: 12px;">“Now a wise man is saying: 'Always expect the unexpected!'”</p>
               <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
                 The days had passed, the time had flown,<br>
@@ -410,8 +423,8 @@
             </div>
 
             <!-- Chapter III -->
-            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
-              <h4 style="color: var(--champagneLight); font-size: 20px; font-weight: normal; margin-bottom: 4px;">CHAPTER III — THE GLOWING SCREEN</h4>
+            <div style="border-left: 2px solid var(--champagne); padding-left: 16px;">
+              <h4 style="color: var(--champagneLight); font-size: clamp(17px, 3.5vw, 20px); font-weight: normal; margin-bottom: 4px;">CHAPTER III — THE GLOWING SCREEN</h4>
               <p style="font-size: 13px; color: rgba(253, 251, 247, 0.6); font-style: italic; margin-bottom: 12px;">“Sometimes which appears to be an END is not actually THE END...”</p>
               <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
                 The end was not an end at all,<br>
@@ -432,8 +445,8 @@
             </div>
 
             <!-- Chapter IV -->
-            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
-              <h4 style="color: var(--champagneLight); font-size: 20px; font-weight: normal; margin-bottom: 4px;">CHAPTER IV — ENDLESS NIGHTS & PLAYFUL DUELS</h4>
+            <div style="border-left: 2px solid var(--champagne); padding-left: 16px;">
+              <h4 style="color: var(--champagneLight); font-size: clamp(17px, 3.5vw, 20px); font-weight: normal; margin-bottom: 4px;">CHAPTER IV — ENDLESS NIGHTS & PLAYFUL DUELS</h4>
               <p style="font-size: 13px; color: rgba(253, 251, 247, 0.6); font-style: italic; margin-bottom: 12px;">“Dramatic reference of our further story...”</p>
               <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
                 From a single text to endless nights,<br>
@@ -456,8 +469,8 @@
             </div>
 
             <!-- Chapter V -->
-            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
-              <h4 style="color: var(--champagneLight); font-size: 20px; font-weight: normal; margin-bottom: 4px;">CHAPTER V — THE UNSPOKEN WEIGHT</h4>
+            <div style="border-left: 2px solid var(--champagne); padding-left: 16px;">
+              <h4 style="color: var(--champagneLight); font-size: clamp(17px, 3.5vw, 20px); font-weight: normal; margin-bottom: 4px;">CHAPTER V — THE UNSPOKEN WEIGHT</h4>
               <p style="font-size: 13px; color: rgba(253, 251, 247, 0.6); font-style: italic; margin-bottom: 12px;">“It feels so heavy whenever she talks about others...”</p>
               <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
                 Maybe it's true, maybe it's real,<br>
@@ -480,8 +493,8 @@
             </div>
 
             <!-- Chapter VI -->
-            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
-              <h4 style="color: var(--champagneLight); font-size: 20px; font-weight: normal; margin-bottom: 4px;">CHAPTER VI — CROSSING THE LINE</h4>
+            <div style="border-left: 2px solid var(--champagne); padding-left: 16px;">
+              <h4 style="color: var(--champagneLight); font-size: clamp(17px, 3.5vw, 20px); font-weight: normal; margin-bottom: 4px;">CHAPTER VI — CROSSING THE LINE</h4>
               <p style="font-size: 13px; color: rgba(253, 251, 247, 0.6); font-style: italic; margin-bottom: 12px;">“So this is how I confessed to her my feelings...”</p>
               <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
                 Every guy in her life, a villain to me,<br>
@@ -512,8 +525,8 @@
             </div>
 
             <!-- Chapter VII -->
-            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
-              <h4 style="color: var(--champagneLight); font-size: 20px; font-weight: normal; margin-bottom: 4px;">CHAPTER VII — THE NOVEMBER STORM & THE TURN OF FATE</h4>
+            <div style="border-left: 2px solid var(--champagne); padding-left: 16px;">
+              <h4 style="color: var(--champagneLight); font-size: clamp(17px, 3.5vw, 20px); font-weight: normal; margin-bottom: 4px;">CHAPTER VII — THE NOVEMBER STORM & THE TURN OF FATE</h4>
               <p style="font-size: 13px; color: rgba(253, 251, 247, 0.6); font-style: italic; margin-bottom: 12px;">“Wondering what happened after I confessed? It's even more dramatic...”</p>
               <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
                 I laid it all bare, no walls, no disguise,<br>
@@ -544,8 +557,8 @@
             </div>
 
             <!-- Chapter VIII -->
-            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
-              <h4 style="color: var(--champagneLight); font-size: 20px; font-weight: normal; margin-bottom: 4px;">CHAPTER VIII — CLASHING, TRUSTING & GROWING</h4>
+            <div style="border-left: 2px solid var(--champagne); padding-left: 16px;">
+              <h4 style="color: var(--champagneLight); font-size: clamp(17px, 3.5vw, 20px); font-weight: normal; margin-bottom: 4px;">CHAPTER VIII — CLASHING, TRUSTING & GROWING</h4>
               <p style="font-size: 13px; color: rgba(253, 251, 247, 0.6); font-style: italic; margin-bottom: 12px;">“How everything is going on...”</p>
               <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
                 From that day on, everything felt right,<br>
@@ -576,8 +589,8 @@
             </div>
 
             <!-- Chapter IX -->
-            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
-              <h4 style="color: var(--champagneLight); font-size: 20px; font-weight: normal; margin-bottom: 4px;">CHAPTER IX — PHIR KYA HUA? HAND IN HAND</h4>
+            <div style="border-left: 2px solid var(--champagne); padding-left: 16px;">
+              <h4 style="color: var(--champagneLight); font-size: clamp(17px, 3.5vw, 20px); font-weight: normal; margin-bottom: 4px;">CHAPTER IX — PHIR KYA HUA? HAND IN HAND</h4>
               <p style="font-size: 13px; color: rgba(253, 251, 247, 0.6); font-style: italic; margin-bottom: 12px;">“Sorry for the delay in writing. Let's start... Phir? Phir Kya hua??”</p>
               <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
                 The months rolled on, the seasons turned,<br>
@@ -619,8 +632,8 @@
             </div>
 
             <!-- Chapter X -->
-            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
-              <h4 style="color: var(--champagneLight); font-size: 20px; font-weight: normal; margin-bottom: 4px;">CHAPTER X — COLLEGE GATES & 2025</h4>
+            <div style="border-left: 2px solid var(--champagne); padding-left: 16px;">
+              <h4 style="color: var(--champagneLight); font-size: clamp(17px, 3.5vw, 20px); font-weight: normal; margin-bottom: 4px;">CHAPTER X — COLLEGE GATES & 2025</h4>
               <p style="font-size: 13px; color: rgba(253, 251, 247, 0.6); font-style: italic; margin-bottom: 12px;">“Leaving 2025 Behind...”</p>
               <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
                 I really enjoyed our days back then,<br>
@@ -633,8 +646,8 @@
             </div>
 
             <!-- Chapter XI -->
-            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
-              <h4 style="color: var(--champagneLight); font-size: 20px; font-weight: normal; margin-bottom: 4px;">CHAPTER XI — THE FIRST ROSE & FIRST KISS</h4>
+            <div style="border-left: 2px solid var(--champagne); padding-left: 16px;">
+              <h4 style="color: var(--champagneLight); font-size: clamp(17px, 3.5vw, 20px); font-weight: normal; margin-bottom: 4px;">CHAPTER XI — THE FIRST ROSE & FIRST KISS</h4>
               <p style="font-size: 13px; color: rgba(253, 251, 247, 0.6); font-style: italic; margin-bottom: 12px;">“~ Zoroko, Charisma, and the First Kiss...”</p>
               <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
                 The very first day at Zoroko we met,<br>
@@ -655,8 +668,8 @@
             </div>
 
             <!-- Chapter XII -->
-            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
-              <h4 style="color: var(--champagneLight); font-size: 20px; font-weight: normal; margin-bottom: 4px;">CHAPTER XII — THE INDORE EVENINGS</h4>
+            <div style="border-left: 2px solid var(--champagne); padding-left: 16px;">
+              <h4 style="color: var(--champagneLight); font-size: clamp(17px, 3.5vw, 20px); font-weight: normal; margin-bottom: 4px;">CHAPTER XII — THE INDORE EVENINGS</h4>
               <p style="font-size: 13px; color: rgba(253, 251, 247, 0.6); font-style: italic; margin-bottom: 12px;">“The Internship Days...”</p>
               <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
                 I don't know how fast the days had passed,<br>
@@ -670,8 +683,8 @@
             </div>
 
             <!-- Chapter XIII -->
-            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
-              <h4 style="color: var(--champagneLight); font-size: 20px; font-weight: normal; margin-bottom: 4px;">CHAPTER XIII — FOREVER YOURS</h4>
+            <div style="border-left: 2px solid var(--champagne); padding-left: 16px;">
+              <h4 style="color: var(--champagneLight); font-size: clamp(17px, 3.5vw, 20px); font-weight: normal; margin-bottom: 4px;">CHAPTER XIII — FOREVER YOURS</h4>
               <p style="font-size: 13px; color: rgba(253, 251, 247, 0.6); font-style: italic; margin-bottom: 12px;">“My Wish For You & Forever Yours...”</p>
               <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
                 I wanted you to stay right here with me,<br>
@@ -694,7 +707,7 @@
                 I chose you then... I choose today.
               </p>
               <div style="margin-top: 24px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 16px;">
-                <span class="font-serif" style="font-size: 26px; color: var(--roseMist); font-weight: bold;">P.S. I Love You!! ❤️</span>
+                <span class="font-serif" style="font-size: clamp(20px, 4vw, 26px); color: var(--roseMist); font-weight: bold;">P.S. I Love You!! ❤️</span>
               </div>
             </div>
 
@@ -704,34 +717,34 @@
     </section>
 
     <!-- CHAPTER 3: THE EDITS & SHORT VIDEOS VAULT -->
-    <section id="chapter-3" style="padding: 70px 0; scroll-margin-top: 90px;">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+    <section id="chapter-3" style="padding: 55px 0; scroll-margin-top: 80px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
         <div>
-          <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne); font-weight: 700;">
+          <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne); font-weight: 700;">
             Chapter Three
           </span>
-          <h2 class="font-serif" style="font-size: clamp(26px, 4vw, 36px); color: var(--pearlWhite);">Captured Reels & Edits</h2>
+          <h2 class="font-serif" style="font-size: clamp(24px, 4.5vw, 34px); color: var(--pearlWhite);">Captured Reels & Edits</h2>
         </div>
         <div id="statusBadge3" style="padding: 5px 14px; border-radius: 9999px; font-size: 12px; border: 1px solid rgba(244, 202, 195, 0.2); color: var(--roseMist); background: var(--nightVelvet);">
           🔒 Locked
         </div>
       </div>
 
-      <div class="glass-surface" id="cardContainer3" style="padding: 24px; min-height: 380px;">
+      <div class="glass-surface" id="cardContainer3" style="padding: 24px; min-height: 340px;">
         <!-- Locked View -->
-        <div id="lockView3" style="text-align: center; padding: 40px 16px; display: flex; flex-direction: column; align-items: center;">
-          <div class="pulse-glow" style="width: 68px; height: 68px; border-radius: 50%; background: rgba(135, 18, 40, 0.4); border: 1px solid var(--crimsonGlow); display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 18px;">
+        <div id="lockView3" style="text-align: center; padding: 30px 10px; display: flex; flex-direction: column; align-items: center;">
+          <div class="pulse-glow" style="width: 64px; height: 64px; border-radius: 50%; background: rgba(135, 18, 40, 0.4); border: 1px solid var(--crimsonGlow); display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 16px;">
             📹
           </div>
-          <h3 class="font-serif" style="font-size: clamp(22px, 3.5vw, 30px); margin-bottom: 8px;">Our Highlights & Cutdowns</h3>
-          <p class="font-serif" style="font-size: 18px; color: var(--champagneLight); font-style: italic; max-width: 500px; margin-bottom: 24px;">
+          <h3 class="font-serif" style="font-size: clamp(20px, 4vw, 28px); margin-bottom: 8px;">Our Highlights & Cutdowns</h3>
+          <p class="font-serif" style="font-size: clamp(15px, 2.8vw, 18px); color: var(--champagneLight); font-style: italic; max-width: 500px; margin-bottom: 22px;">
             "What was the date of our First Kiss? 💋"
           </p>
 
           <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 10px;">
-            <div style="position: relative;">
-              <input type="text" id="answerInput3" placeholder="Type our unforgettable date..." class="input-field" style="padding-right: 100px;" onkeydown="if(event.key === 'Enter') submitDirectAnswer(3)">
-              <button onclick="submitDirectAnswer(3)" class="btn-gold" style="position: absolute; right: 6px; top: 6px; bottom: 6px; padding: 0 16px; font-size: 12px;">
+            <div class="input-wrapper" style="position: relative; display: flex; width: 100%;">
+              <input type="text" id="answerInput3" placeholder="Type our unforgettable date..." class="input-field" style="padding-right: 90px;" onkeydown="if(event.key === 'Enter') submitDirectAnswer(3)">
+              <button onclick="submitDirectAnswer(3)" class="btn-gold" style="position: absolute; right: 5px; top: 5px; bottom: 5px; padding: 0 16px; font-size: 12px;">
                 Unlock
               </button>
             </div>
@@ -747,50 +760,50 @@
 
         <!-- Unlocked View: 8 Edits Grid -->
         <div id="unlockedView3" class="hidden">
-          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(253, 251, 247, 0.1); padding-bottom: 16px; margin-bottom: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(253, 251, 247, 0.1); padding-bottom: 14px; margin-bottom: 20px; flex-wrap: wrap; gap: 8px;">
             <div>
-              <h3 class="font-serif" style="font-size: 22px; color: var(--pearlWhite);">Eight Moments of Us</h3>
+              <h3 class="font-serif" style="font-size: clamp(18px, 3.5vw, 22px); color: var(--pearlWhite);">Eight Moments of Us</h3>
               <p style="font-size: 12px; color: rgba(253, 251, 247, 0.6);">Tap any reel to play instantly.</p>
             </div>
             <span style="font-size: 11px; font-family: monospace; color: var(--champagneLight);">Reels I – VIII</span>
           </div>
 
-          <div id="editsVaultGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px;">
+          <div id="editsVaultGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px;">
             <!-- Rendered by JS -->
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CHAPTER 4: THE FINAL 3D LOVE LETTER & SECRET -->
-    <section id="chapter-4" style="padding: 70px 0 120px 0; scroll-margin-top: 90px;">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+    <!-- CHAPTER 4: THE FINAL FILM SECRET -->
+    <section id="chapter-4" style="padding: 55px 0 100px 0; scroll-margin-top: 80px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
         <div>
-          <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne); font-weight: 700;">
+          <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne); font-weight: 700;">
             Chapter Four
           </span>
-          <h2 class="font-serif" style="font-size: clamp(26px, 4vw, 36px); color: var(--pearlWhite);">The Final Secret</h2>
+          <h2 class="font-serif" style="font-size: clamp(24px, 4.5vw, 34px); color: var(--pearlWhite);">The Final Secret</h2>
         </div>
         <div id="statusBadge4" style="padding: 5px 14px; border-radius: 9999px; font-size: 12px; border: 1px solid rgba(244, 202, 195, 0.2); color: var(--roseMist); background: var(--nightVelvet);">
           🔒 Locked
         </div>
       </div>
 
-      <div class="glass-surface" id="cardContainer4" style="padding: 24px; min-height: 380px;">
+      <div class="glass-surface" id="cardContainer4" style="padding: 24px; min-height: 340px;">
         <!-- Locked View -->
-        <div id="lockView4" style="text-align: center; padding: 40px 16px; display: flex; flex-direction: column; align-items: center;">
-          <div class="pulse-glow" style="width: 68px; height: 68px; border-radius: 50%; background: rgba(135, 18, 40, 0.4); border: 1px solid var(--crimsonGlow); display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 18px;">
-            💌
+        <div id="lockView4" style="text-align: center; padding: 30px 10px; display: flex; flex-direction: column; align-items: center;">
+          <div class="pulse-glow" style="width: 64px; height: 64px; border-radius: 50%; background: rgba(135, 18, 40, 0.4); border: 1px solid var(--crimsonGlow); display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 16px;">
+            🎬
           </div>
-          <h3 class="font-serif" style="font-size: clamp(22px, 3.5vw, 30px); margin-bottom: 8px;">The Sealed Vow</h3>
-          <p class="font-serif" style="font-size: 18px; color: var(--champagneLight); font-style: italic; max-width: 500px; margin-bottom: 24px;">
+          <h3 class="font-serif" style="font-size: clamp(20px, 4vw, 28px); margin-bottom: 8px;">The Sealed Film</h3>
+          <p class="font-serif" style="font-size: clamp(15px, 2.8vw, 18px); color: var(--champagneLight); font-style: italic; max-width: 500px; margin-bottom: 22px;">
             "Name the place we Often Visit Together? 🍕"
           </p>
 
           <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 10px;">
-            <div style="position: relative;">
-              <input type="text" id="answerInput4" placeholder="Type our favorite spot..." class="input-field" style="padding-right: 100px;" onkeydown="if(event.key === 'Enter') submitDirectAnswer(4)">
-              <button onclick="submitDirectAnswer(4)" class="btn-gold" style="position: absolute; right: 6px; top: 6px; bottom: 6px; padding: 0 16px; font-size: 12px;">
+            <div class="input-wrapper" style="position: relative; display: flex; width: 100%;">
+              <input type="text" id="answerInput4" placeholder="Type our favorite spot..." class="input-field" style="padding-right: 90px;" onkeydown="if(event.key === 'Enter') submitDirectAnswer(4)">
+              <button onclick="submitDirectAnswer(4)" class="btn-gold" style="position: absolute; right: 5px; top: 5px; bottom: 5px; padding: 0 16px; font-size: 12px;">
                 Unlock
               </button>
             </div>
@@ -804,74 +817,31 @@
           </div>
         </div>
 
-        <!-- Unlocked View: 3D Love Letter Envelope -->
-        <div id="unlockedView4" class="hidden" style="text-align: center; padding: 20px 0;">
-          <h3 class="font-serif" style="font-size: 32px; color: var(--pearlWhite); margin-bottom: 8px;">A Letter Sealed For Eternity</h3>
-          <p style="font-size: 14px; color: rgba(253, 251, 247, 0.7); max-width: 480px; margin: 0 auto 30px auto;">
-            Tap on the envelope below to break the wax seal and unfold my private letter to you.
-          </p>
-
-          <div class="envelope-3d-wrap" style="max-width: 520px; margin: 0 auto 40px auto;">
-            <div id="envelopeFlipCard" class="envelope-card glass-surface" style="padding: 36px 24px; cursor: pointer; border: 1px solid var(--champagne);" onclick="toggleEnvelopeFlip()">
-              
-              <!-- Front Face -->
-              <div class="envelope-front">
-                <div style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--crimsonVelvet), var(--crimsonGlow)); margin: 0 auto 16px auto; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 10px 25px rgba(232, 62, 92, 0.5);">
-                  💌
-                </div>
-                <h4 class="font-serif" style="font-size: 24px; color: #fff; margin-bottom: 6px;">To My Forever Person</h4>
-                <p style="font-size: 11px; letter-spacing: 2px; color: rgba(253, 251, 247, 0.5); text-transform: uppercase; margin-bottom: 20px;">CONFIDENTIAL & SACRED</p>
-                <span class="btn-gold" style="padding: 8px 20px; font-size: 12px; letter-spacing: 1px; display: inline-block;">
-                  Tap to Break Seal
-                </span>
-              </div>
-
-              <!-- Back Face -->
-              <div class="envelope-back" style="position: absolute; inset: 0; padding: 28px; background: #14080e; border-radius: 24px; text-align: left; overflow-y: auto; display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(253, 251, 247, 0.1); padding-bottom: 10px; margin-bottom: 16px;">
-                    <span class="font-serif" style="font-size: 18px; color: var(--champagneLight); font-style: italic;">Dearest Ishika,</span>
-                    <span style="font-size: 18px; color: var(--roseMist);">♾️</span>
-                  </div>
-                  <p class="font-serif" style="font-size: 15px; color: rgba(253, 251, 247, 0.9); line-height: 1.7; font-style: italic; margin-bottom: 14px;">
-                    "From the boy who sat quietly in 12th grade wondering why everyone said you were looking at him, to the person who now cherishes every Indore evening and every late-night phone call... there isn't a single memory of you that I take for granted."
-                  </p>
-                  <p class="font-serif" style="font-size: 15px; color: rgba(253, 251, 247, 0.85); line-height: 1.7; font-style: italic;">
-                    "I am sorry for the audit days when work got loud, and for every time I hurt you without knowing. You are my home in the rain, my first kiss at Zoroko, and my favorite date at La Pino'z. No matter what the future tests us with, I chose you then, and I choose you today."
-                  </p>
-                </div>
-                <div style="border-top: 1px solid rgba(253, 251, 247, 0.1); padding-top: 12px; text-align: right;">
-                  <span style="font-size: 12px; letter-spacing: 2px; color: var(--champagne); text-transform: uppercase; font-weight: bold;">P.S. I Love You Ishika!</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- GRAND FINALE FILM SHOWCASE -->
-          <div style="max-width: 740px; margin: 30px auto 0 auto; text-align: center; position: relative;">
-            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 9999px; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.4); color: var(--champagneLight); font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 16px;">
+        <!-- Unlocked View: Final Film Showcase -->
+        <div id="unlockedView4" class="hidden" style="padding: 10px 0;">
+          <div style="max-width: 840px; margin: 0 auto; text-align: center; position: relative;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 9999px; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.4); color: var(--champagneLight); font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 14px;">
               ✨ Our Forever Reel ✨
             </div>
             
-            <h4 class="font-serif" style="font-size: clamp(22px, 3.5vw, 30px); color: var(--pearlWhite); margin-bottom: 8px;">
+            <h3 class="font-serif" style="font-size: clamp(24px, 4.5vw, 36px); color: var(--pearlWhite); margin-bottom: 8px;">
               The Final Film For Ishika
-            </h4>
-            <p class="font-serif" style="font-size: 14px; color: var(--roseMist); font-style: italic; margin-bottom: 22px;">
+            </h3>
+            <p class="font-serif" style="font-size: clamp(14px, 2.5vw, 16px); color: var(--roseMist); font-style: italic; margin-bottom: 24px;">
               "No matter what the world may say, I chose you then... I choose today."
             </p>
 
             <!-- Video Player with Golden Aura Frame -->
-            <div style="position: relative; padding: 8px; border-radius: 24px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.6), rgba(135, 18, 40, 0.4), rgba(212, 175, 55, 0.4)); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 45px rgba(212, 175, 55, 0.25);">
-              <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 18px; overflow: hidden; background: #000;">
+            <div style="position: relative; padding: 6px; border-radius: 20px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.6), rgba(135, 18, 40, 0.4), rgba(212, 175, 55, 0.4)); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 45px rgba(212, 175, 55, 0.25);">
+              <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 16px; overflow: hidden; background: #000;">
                 <iframe id="finalDriveIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
               </div>
             </div>
-          </div>
 
-          <p style="font-size: 11px; color: rgba(253, 251, 247, 0.4); text-transform: uppercase; letter-spacing: 2px; margin-top: 28px;">
-            Tap letter anytime to fold back
-          </p>
+            <div style="margin-top: 26px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.2); padding-top: 16px;">
+              <span class="font-serif" style="font-size: 18px; color: var(--champagneLight); font-style: italic;">Forever & Always, Yours Ayush ❤️</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1109,26 +1079,15 @@
       if (modal) modal.classList.add('hidden');
     }
 
-    /* -------------------------------------------------------------
-       3. 3D LOVE LETTER FLIP
-    -------------------------------------------------------------- */
-    function toggleEnvelopeFlip() {
-      const card = document.getElementById('envelopeFlipCard');
-      if (card) {
-        card.classList.toggle('is-open');
-        triggerPetalConfetti();
-      }
-    }
-
-    let poemFontSize = 18;
+    let poemFontSize = 17;
     function adjustPoemFontSize(delta) {
-      poemFontSize = Math.max(14, Math.min(24, poemFontSize + (delta * 2)));
+      poemFontSize = Math.max(13, Math.min(24, poemFontSize + (delta * 2)));
       const manuscript = document.getElementById('fullPoemManuscript');
       if (manuscript) manuscript.style.fontSize = poemFontSize + 'px';
     }
 
     /* -------------------------------------------------------------
-       4. AMBIENT PARTICLES
+       3. AMBIENT PARTICLES
     -------------------------------------------------------------- */
     const canvas = document.getElementById('starsCanvas');
     const ctx = canvas ? canvas.getContext('2d') : null;
