@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayush & Ishika — Our Journey of Memories & Love</title>
+  
+  <!-- Robust Native Modern CSS Engine (Zero External CDN dependencies that cause white screens) -->
+  <style>
+    :root {
+      --obsidian: #0a0508;
+      --nightVelvet: #14080e;
+      --crimsonVelvet: #871228;
+      --crimsonGlow: #e83e5c;
+      --champagne: #d4af37;
+      --champagneLight: #fae392;
+      --roseMist: #f4cac3;
+      --pearlWhite: #fdfbf7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--obsidian);
+      color: var(--pearlWhite);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .font-serif {
+      font-family: "Georgia", "Cambria", "Times New Roman", serif;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--obsidian); }
+    ::-webkit-scrollbar-thumb { background: #2b111b; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--champagne); }
+
+    .glass-surface {
+      background: rgba(20, 8, 14, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    }
+    
+    .glass-surface-lock {
+      background: rgba(15, 6, 11, 0.96);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px dashed rgba(212, 175, 55, 0.4);
+      border-radius: 24px;
+    }
+
+    .radial-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* 3D Envelope Flip Card */
+    .envelope-3d-wrap { perspective: 1200px; }
+    .envelope-card {
+      transition: transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform-style: preserve-3d;
+      position: relative;
+    }
+    .envelope-card.is-open { transform: rotateY(180deg); }
+    .envelope-front, .envelope-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .envelope-back { transform: rotateY(180deg); }
+
+    /* Buttons & Inputs */
+    .btn-gold {
+      background: linear-gradient(135deg, #d4af37, #fae392, #d4af37);
+      color: #0a0508;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 12px;
+    }
+    .btn-gold:hover { transform: scale(1.03); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+    .btn-gold:active { transform: scale(0.97); }
+
+    .input-field {
+      width: 100%;
+      background: rgba(10, 5, 8, 0.95);
+      border: 1px solid rgba(253, 251, 247, 0.2);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: #fdfbf7;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .input-field:focus { border-color: var(--champagne); }
+
+    /* Animations */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.05); }
+    }
+    .pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
+
+    @keyframes shakeCard {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+    .shake { animation: shakeCard 0.5s ease-in-out; }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+
+<body>
+
+  <!-- MASTER PRIVACY LOCK SCREEN (PREVENTS STRANGERS FROM VIEWING) -->
+  <div id="masterPrivacyScreen" style="position: fixed; inset: 0; z-index: 9999; background: #0a0508; display: flex; align-items: center; justify-content: center; padding: 20px; transition: opacity 0.6s ease;">
+    <div class="glass-surface-lock" style="max-width: 440px; width: 100%; padding: 36px 28px; text-align: center; position: relative; box-shadow: 0 25px 60px rgba(0,0,0,0.9);">
+      
+      <!-- Wax seal badge icon -->
+      <div class="pulse-glow" style="width: 76px; height: 76px; border-radius: 50%; background: linear-gradient(135deg, var(--crimsonVelvet), var(--crimsonGlow), var(--champagne)); margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(212, 175, 55, 0.5); box-shadow: 0 10px 30px rgba(232, 62, 92, 0.4);">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+      
+      <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: var(--champagne); font-weight: 700; font-family: monospace;">Private Sanctuary</span>
+      <h2 class="font-serif" style="font-size: 32px; color: var(--pearlWhite); margin: 6px 0 10px 0; font-weight: normal;">Only For Ishika</h2>
+      <p class="font-serif" style="font-size: 14px; color: rgba(253, 251, 247, 0.7); font-style: italic; margin-bottom: 24px;">
+        "This sanctuary of memories was built for one person only. Enter the master key to enter."
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <input type="password" id="masterPasscodeInput" placeholder="Enter secret key..." class="input-field" style="text-align: center; font-size: 16px; letter-spacing: 4px;" onkeydown="if(event.key === 'Enter') unlockMasterPrivacy()">
+        <button onclick="unlockMasterPrivacy()" class="btn-gold" style="padding: 13px; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-4-4 4-4 7.5-7.5z"></path>
+            <circle cx="15.5" cy="8.5" r="2.5"></circle>
+          </svg>
+          <span>Open My Sanctuary</span>
+        </button>
+        <div id="masterPassFeedback" style="font-size: 13px; font-weight: 600; min-height: 20px;"></div>
+      </div>
+
+      <p style="font-size: 11px; color: rgba(253, 251, 247, 0.4); margin-top: 18px; letter-spacing: 2px; text-transform: uppercase; font-family: monospace;">
+        Authorized Access Only • 04-11-2026
+      </p>
+    </div>
+  </div>
+
+  <!-- Floating Particles Canvas -->
+  <canvas id="starsCanvas" style="position: fixed; inset: 0; pointer-events: none; z-index: 1;"></canvas>
+
+  <!-- Ambient Light Orbs -->
+  <div class="radial-glow pulse-glow" style="width: 380px; height: 380px; background: rgba(135, 18, 40, 0.35); top: -60px; left: -100px;"></div>
+  <div class="radial-glow pulse-glow" style="width: 440px; height: 440px; background: rgba(212, 175, 55, 0.2); top: 40%; right: -120px;"></div>
+
+  <!-- TOP HUD BAR -->
+  <header style="position: fixed; top: 16px; left: 0; right: 0; margin: 0 auto; width: 92%; max-width: 1040px; z-index: 50;">
+    <div class="glass-surface" style="padding: 10px 22px; display: flex; align-items: center; justify-content: space-between; border-radius: 9999px;">
+      
+      <!-- Brand -->
+      <a href="#hero" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--champagne), var(--crimsonGlow)); display: flex; align-items: center; justify-content: center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" stroke="none">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <span class="font-serif" style="font-size: 19px; letter-spacing: 2px; color: var(--champagneLight); font-weight: 500;">
+          Ayush & Ishika
+        </span>
+      </a>
+
+      <!-- Quick Chapter Progress Indicators -->
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <button id="audioToggleBtn" title="Play Romantic Melody" style="padding: 7px 14px; border-radius: 9999px; font-size: 12px; font-weight: 600; border: 1px solid rgba(212, 175, 55, 0.5); background: rgba(20, 8, 14, 0.8); color: var(--champagneLight); cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <span id="audioIcon">🎵</span>
+          <span id="audioLabel">Music</span>
+        </button>
+        <button onclick="triggerPetalConfetti()" title="Shower of Love" style="width: 34px; height: 34px; border-radius: 50%; background: rgba(135, 18, 40, 0.5); border: 1px solid var(--crimsonGlow); color: var(--crimsonGlow); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px;">
+          ❤️
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main style="position: relative; z-index: 10; max-width: 1100px; margin: 0 auto; padding: 0 16px;">
+
+    <!-- HERO SECTION -->
+    <section id="hero" style="min-h: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 130px 16px 60px 16px;">
+      <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 9999px; border: 1px solid rgba(212, 175, 55, 0.4); background: rgba(212, 175, 55, 0.1); color: var(--champagneLight); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">
+        ✨ A Journey of Memories & Love — For Ishika ✨
+      </div>
+
+      <h1 class="font-serif" style="font-size: clamp(34px, 7vw, 68px); font-weight: normal; line-height: 1.15; color: var(--pearlWhite); margin-bottom: 20px;">
+        To Unlock My Heart, <br>
+        <span style="font-style: italic; background: linear-gradient(90deg, var(--champagneLight), var(--roseMist), var(--crimsonGlow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          Answer Our Memories.
+        </span>
+      </h1>
+
+      <p style="color: rgba(253, 251, 247, 0.75); font-size: clamp(15px, 2.5vw, 19px); max-width: 650px; margin: 0 auto 32px auto; line-height: 1.6;">
+        Every milestone in our story holds a sacred key. Enter the secret memories we both carry in our hearts to reveal each chapter.
+      </p>
+
+      <!-- Overall Quest Progress Card -->
+      <div class="glass-surface" style="width: 100%; max-width: 440px; padding: 20px; margin-bottom: 30px;">
+        <div style="display: flex; justify-content: space-between; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;">
+          <span style="color: rgba(253, 251, 247, 0.7);">Chapters Unlocked</span>
+          <span id="progressText" style="color: var(--champagneLight); font-weight: 700;">0 / 4 Unlocked</span>
+        </div>
+        <div style="width: 100%; height: 10px; background: #0a0508; border-radius: 9999px; overflow: hidden; border: 1px solid rgba(253, 251, 247, 0.1); padding: 1px;">
+          <div id="questProgressBar" style="height: 100%; width: 0%; background: linear-gradient(90deg, var(--crimsonGlow), var(--roseMist), var(--champagne)); border-radius: 9999px; transition: width 0.7s ease;"></div>
+        </div>
+      </div>
+
+      <a href="#chapter-1" class="btn-gold" style="padding: 14px 32px; font-size: 14px; letter-spacing: 1px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+        🔒 Begin With Chapter One
+      </a>
+    </section>
+
+    <!-- CHAPTER 1: THE MAIN RECORDED VIDEO -->
+    <section id="chapter-1" style="padding: 70px 0; scroll-margin-top: 90px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+        <div>
+          <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne); font-weight: 700;">
+            Chapter One
+          </span>
+          <h2 class="font-serif" style="font-size: clamp(26px, 4vw, 36px); color: var(--pearlWhite);">The Recorded Film</h2>
+        </div>
+        <div id="statusBadge1" style="padding: 5px 14px; border-radius: 9999px; font-size: 12px; border: 1px solid rgba(244, 202, 195, 0.2); color: var(--roseMist); background: var(--nightVelvet);">
+          🔒 Locked
+        </div>
+      </div>
+
+      <div class="glass-surface" id="cardContainer1" style="padding: 24px; min-height: 380px;">
+        <!-- Locked View -->
+        <div id="lockView1" style="text-align: center; padding: 40px 16px; display: flex; flex-direction: column; align-items: center;">
+          <div class="pulse-glow" style="width: 68px; height: 68px; border-radius: 50%; background: rgba(135, 18, 40, 0.4); border: 1px solid var(--crimsonGlow); display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 18px;">
+            🎬
+          </div>
+          <h3 class="font-serif" style="font-size: clamp(22px, 3.5vw, 30px); margin-bottom: 8px;">A Film Recorded Only For You</h3>
+          <p class="font-serif" style="font-size: 18px; color: var(--champagneLight); font-style: italic; max-width: 500px; margin-bottom: 24px;">
+            "What was the date when we went on our 1st Movie date? 🎬"
+          </p>
+
+          <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="position: relative;">
+              <input type="text" id="answerInput1" placeholder="Type our special date..." class="input-field" style="padding-right: 100px;" onkeydown="if(event.key === 'Enter') submitDirectAnswer(1)">
+              <button onclick="submitDirectAnswer(1)" class="btn-gold" style="position: absolute; right: 6px; top: 6px; bottom: 6px; padding: 0 16px; font-size: 12px;">
+                Unlock
+              </button>
+            </div>
+            <div id="feedbackText1" style="font-size: 13px; font-weight: 600; min-height: 20px;"></div>
+            <div>
+              <button onclick="toggleHint(1)" style="background: none; border: none; color: rgba(253, 251, 247, 0.6); font-size: 12px; text-decoration: underline; cursor: pointer;">Need a hint?</button>
+              <p id="hintBox1" class="hidden" style="margin-top: 10px; font-size: 13px; color: var(--roseMist); background: rgba(20, 8, 14, 0.9); padding: 12px; border-radius: 12px; border: 1px solid rgba(244, 202, 195, 0.3); font-style: italic;">
+                "If you don't get this, call me and say 'I Love You, I forgot the date, I owe you 1 Movie Date' 🎬❤️"
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unlocked View -->
+        <div id="unlockedView1" class="hidden">
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid rgba(253, 251, 247, 0.1); margin-bottom: 16px;">
+            <span class="font-serif" style="font-size: 20px; color: var(--champagneLight);">For Ishika — The One I Chose & Choose Today</span>
+            <span style="font-size: 12px; color: #4ade80;">● Online Stream</span>
+          </div>
+          <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 15px 35px rgba(0,0,0,0.8);">
+            <iframe id="heroDriveIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://drive.google.com/file/d/1TN3WOetxS9yxB4nBJoNv7jm1yrp7lemv/preview?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 2: THE POETRY MANUSCRIPT -->
+    <section id="chapter-2" style="padding: 70px 0; scroll-margin-top: 90px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+        <div>
+          <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne); font-weight: 700;">
+            Chapter Two
+          </span>
+          <h2 class="font-serif" style="font-size: clamp(26px, 4vw, 36px); color: var(--pearlWhite);">Our Story — A Poem for Ishika</h2>
+        </div>
+        <div id="statusBadge2" style="padding: 5px 14px; border-radius: 9999px; font-size: 12px; border: 1px solid rgba(244, 202, 195, 0.2); color: var(--roseMist); background: var(--nightVelvet);">
+          🔒 Locked
+        </div>
+      </div>
+
+      <div class="glass-surface" id="cardContainer2" style="padding: 24px; min-height: 380px;">
+        <!-- Locked View -->
+        <div id="lockView2" style="text-align: center; padding: 40px 16px; display: flex; flex-direction: column; align-items: center;">
+          <div class="pulse-glow" style="width: 68px; height: 68px; border-radius: 50%; background: rgba(135, 18, 40, 0.4); border: 1px solid var(--crimsonGlow); display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 18px;">
+            ✒️
+          </div>
+          <h3 class="font-serif" style="font-size: clamp(22px, 3.5vw, 30px); margin-bottom: 8px;">13 Chapters Written With All My Heart</h3>
+          <p class="font-serif" style="font-size: 18px; color: var(--champagneLight); font-style: italic; max-width: 500px; margin-bottom: 24px;">
+            "What was the First thing I ever ordered for you, without even asking you, whether you want or not? 🍹"
+          </p>
+
+          <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="position: relative;">
+              <input type="text" id="answerInput2" placeholder="Type your answer here..." class="input-field" style="padding-right: 100px;" onkeydown="if(event.key === 'Enter') submitDirectAnswer(2)">
+              <button onclick="submitDirectAnswer(2)" class="btn-gold" style="position: absolute; right: 6px; top: 6px; bottom: 6px; padding: 0 16px; font-size: 12px;">
+                Unlock
+              </button>
+            </div>
+            <div id="feedbackText2" style="font-size: 13px; font-weight: 600; min-height: 20px;"></div>
+            <div>
+              <button onclick="toggleHint(2)" style="background: none; border: none; color: rgba(253, 251, 247, 0.6); font-size: 12px; text-decoration: underline; cursor: pointer;">Need a hint?</button>
+              <p id="hintBox2" class="hidden" style="margin-top: 10px; font-size: 13px; color: var(--roseMist); background: rgba(20, 8, 14, 0.9); padding: 12px; border-radius: 12px; border: 1px solid rgba(244, 202, 195, 0.3); font-style: italic;">
+                "If you need answer, You need to give me Sandwich! 🥪🍍"
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unlocked View: 13 Chapters Poem -->
+        <div id="unlockedView2" class="hidden" style="padding: 10px 0;">
+          <div style="border-bottom: 1px solid rgba(253, 251, 247, 0.1); padding-bottom: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <h3 class="font-serif" style="font-size: 26px; color: var(--pearlWhite);">Our Story — A Poem for Ishika</h3>
+              <p class="font-serif" style="font-size: 14px; color: var(--champagne); font-style: italic;">"Written with all my heart — for Ishika"</p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button onclick="adjustPoemFontSize(-1)" style="padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(253, 251, 247, 0.2); background: transparent; color: #fff; cursor: pointer;">A-</button>
+              <button onclick="adjustPoemFontSize(1)" style="padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(253, 251, 247, 0.2); background: transparent; color: #fff; cursor: pointer;">A+</button>
+            </div>
+          </div>
+
+          <div id="fullPoemManuscript" class="font-serif" style="font-size: 18px; line-height: 1.8; max-height: 600px; overflow-y: auto; padding-right: 12px; display: flex; flex-direction: column; gap: 32px;">
+            <div style="background: rgba(20, 8, 14, 0.6); padding: 20px; border-radius: 16px; border: 1px solid rgba(212, 175, 55, 0.2);">
+              <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne);">Opening Reflection</span>
+              <p style="font-style: italic; color: var(--roseMist); margin-top: 8px;">
+                We fight, we fall, we heal, we stay,<br>
+                Yet why does love still drift away?<br>
+                Each wound we mend, each tear we dry,<br>
+                Still, storms return — do you wonder why?<br>
+                We hold on tight, refuse to part,<br>
+                But are we healing or just pressing restart?<br>
+                Let's dive beneath the words we say,<br>
+                And find the cracks that beg to stay.
+              </p>
+            </div>
+
+            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
+              <h4 style="color: var(--champagneLight); font-size: 22px; font-weight: normal; margin-bottom: 6px;">CHAPTER I — THE TWELFTH GRADE GAZE</h4>
+              <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
+                I saw her first in twelfth-grade light,<br>
+                Drifting through desks, left and right.<br>
+                Each one whispered, "She looks at me,"<br>
+                I laughed — how strange could this all be?<br><br>
+                Then my eyes met hers at last,<br>
+                Deep and dark, so still, so vast.<br>
+                No wonder all had felt her stare,<br>
+                Her gaze was everywhere and nowhere.<br><br>
+                I thought to tell her, share the jest,<br>
+                But something held me, let it rest.<br>
+                A moment gone, a chance slipped by,<br>
+                And to this day, I don't know why.
+              </p>
+            </div>
+
+            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
+              <h4 style="color: var(--champagneLight); font-size: 22px; font-weight: normal; margin-bottom: 6px;">CHAPTER II — THE FAREWELL PHOTOGRAPH</h4>
+              <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
+                The days had passed, the time had flown,<br>
+                A silent story left unknown.<br>
+                Not once had words between us spun,<br>
+                Yet fate had plans — its work undone.<br><br>
+                With farewell near, I made a vow,<br>
+                To step beyond my silence now.<br>
+                A picture with all, a memory bright,<br>
+                To leave with joy, not lost in night.<br><br>
+                And then, as if the stars had schemed,<br>
+                She stood before me like a dream.<br>
+                One final chance, the very last day,<br>
+                To cast my fears and words convey.<br><br>
+                A timid "hello," a breath so deep,<br>
+                A moment time had sworn to keep.<br>
+                The shutter clicked, the echoes stayed,<br>
+                A frozen frame the past had made.<br><br>
+                Not just a picture, not just a glance,<br>
+                But courage found in fleeting chance.<br>
+                A chapter closed, yet hearts still know,<br>
+                Some stories end, yet never go.
+              </p>
+            </div>
+
+            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
+              <h4 style="color: var(--champagneLight); font-size: 22px; font-weight: normal; margin-bottom: 6px;">CHAPTER XI — THE FIRST ROSE & FIRST KISS</h4>
+              <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
+                The very first day at Zoroko we met,<br>
+                You were busy on your phone, ignoring me yet.<br>
+                Sitting beside you, I gave you a rose,<br>
+                Hope you liked it, despite how it shows.<br>
+                Sorry for the little taunt I had to make,<br>
+                A little tease for old times' sake.<br><br>
+                Then came a surprise I hadn't planned at all —<br>
+                A sudden kiss that made me softly fall.<br>
+                Lost in that moment, I don't know how or when,<br>
+                And into Charisma we stepped right then.<br>
+                We enjoyed every day, a core memory so bright,<br>
+                Carried through my life like a guiding light.<br>
+                We've kissed many times, and I love them all,<br>
+                But that very first one holds my heart in thrall.
+              </p>
+            </div>
+
+            <div style="border-left: 2px solid var(--champagne); padding-left: 18px;">
+              <h4 style="color: var(--champagneLight); font-size: 22px; font-weight: normal; margin-bottom: 6px;">CHAPTER XIII — FOREVER YOURS</h4>
+              <p style="font-style: italic; color: rgba(253, 251, 247, 0.9);">
+                I wanted you to stay right here with me,<br>
+                Though wishing for your dreams was meant to be.<br>
+                I liked you close in Indore, yet felt your pain,<br>
+                When colleges didn't grant what you hoped to gain.<br><br>
+                I'm sorry, Ishika, for the times I lost my way,<br>
+                Buried in audits when I should have had more to say.<br>
+                I swear I'll make sure that it won't repeat,<br>
+                Your heart and comfort make my life complete.<br><br>
+                Whatever you wanted, I prayed you'd find,<br>
+                Leaving all the heavy doubts behind.<br>
+                Whatever I did, my truth stands clear —<br>
+                I am yours, forever yours, year after year.<br><br>
+                Another year, another test,<br>
+                With you is where my heart finds rest.<br>
+                From twelfth-grade shade to light so clear,<br>
+                I look at you and find my year.<br>
+                No matter what the world may say,<br>
+                I chose you then... I choose today.
+              </p>
+              <div style="margin-top: 24px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 16px;">
+                <span class="font-serif" style="font-size: 26px; color: var(--roseMist); font-weight: bold;">P.S. I Love You!! ❤️</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 3: THE EDITS & SHORT VIDEOS VAULT -->
+    <section id="chapter-3" style="padding: 70px 0; scroll-margin-top: 90px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+        <div>
+          <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne); font-weight: 700;">
+            Chapter Three
+          </span>
+          <h2 class="font-serif" style="font-size: clamp(26px, 4vw, 36px); color: var(--pearlWhite);">Captured Reels & Edits</h2>
+        </div>
+        <div id="statusBadge3" style="padding: 5px 14px; border-radius: 9999px; font-size: 12px; border: 1px solid rgba(244, 202, 195, 0.2); color: var(--roseMist); background: var(--nightVelvet);">
+          🔒 Locked
+        </div>
+      </div>
+
+      <div class="glass-surface" id="cardContainer3" style="padding: 24px; min-height: 380px;">
+        <!-- Locked View -->
+        <div id="lockView3" style="text-align: center; padding: 40px 16px; display: flex; flex-direction: column; align-items: center;">
+          <div class="pulse-glow" style="width: 68px; height: 68px; border-radius: 50%; background: rgba(135, 18, 40, 0.4); border: 1px solid var(--crimsonGlow); display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 18px;">
+            📹
+          </div>
+          <h3 class="font-serif" style="font-size: clamp(22px, 3.5vw, 30px); margin-bottom: 8px;">Our Highlights & Cutdowns</h3>
+          <p class="font-serif" style="font-size: 18px; color: var(--champagneLight); font-style: italic; max-width: 500px; margin-bottom: 24px;">
+            "What was the date of our First Kiss? 💋"
+          </p>
+
+          <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="position: relative;">
+              <input type="text" id="answerInput3" placeholder="Type our unforgettable date..." class="input-field" style="padding-right: 100px;" onkeydown="if(event.key === 'Enter') submitDirectAnswer(3)">
+              <button onclick="submitDirectAnswer(3)" class="btn-gold" style="position: absolute; right: 6px; top: 6px; bottom: 6px; padding: 0 16px; font-size: 12px;">
+                Unlock
+              </button>
+            </div>
+            <div id="feedbackText3" style="font-size: 13px; font-weight: 600; min-height: 20px;"></div>
+            <div>
+              <button onclick="toggleHint(3)" style="background: none; border: none; color: rgba(253, 251, 247, 0.6); font-size: 12px; text-decoration: underline; cursor: pointer;">Need a hint?</button>
+              <p id="hintBox3" class="hidden" style="margin-top: 10px; font-size: 13px; color: var(--roseMist); background: rgba(20, 8, 14, 0.9); padding: 12px; border-radius: 12px; border: 1px solid rgba(244, 202, 195, 0.3); font-style: italic;">
+                "I owe 1 kiss, if you can't Answer this! 💋🙈"
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unlocked View: 8 Edits Grid -->
+        <div id="unlockedView3" class="hidden">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(253, 251, 247, 0.1); padding-bottom: 16px; margin-bottom: 24px;">
+            <div>
+              <h3 class="font-serif" style="font-size: 22px; color: var(--pearlWhite);">Eight Moments of Us</h3>
+              <p style="font-size: 12px; color: rgba(253, 251, 247, 0.6);">Tap any reel to play instantly.</p>
+            </div>
+            <span style="font-size: 11px; font-family: monospace; color: var(--champagneLight);">Reels I – VIII</span>
+          </div>
+
+          <div id="editsVaultGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px;">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 4: THE FINAL 3D LOVE LETTER & SECRET -->
+    <section id="chapter-4" style="padding: 70px 0 120px 0; scroll-margin-top: 90px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+        <div>
+          <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--champagne); font-weight: 700;">
+            Chapter Four
+          </span>
+          <h2 class="font-serif" style="font-size: clamp(26px, 4vw, 36px); color: var(--pearlWhite);">The Final Secret</h2>
+        </div>
+        <div id="statusBadge4" style="padding: 5px 14px; border-radius: 9999px; font-size: 12px; border: 1px solid rgba(244, 202, 195, 0.2); color: var(--roseMist); background: var(--nightVelvet);">
+          🔒 Locked
+        </div>
+      </div>
+
+      <div class="glass-surface" id="cardContainer4" style="padding: 24px; min-height: 380px;">
+        <!-- Locked View -->
+        <div id="lockView4" style="text-align: center; padding: 40px 16px; display: flex; flex-direction: column; align-items: center;">
+          <div class="pulse-glow" style="width: 68px; height: 68px; border-radius: 50%; background: rgba(135, 18, 40, 0.4); border: 1px solid var(--crimsonGlow); display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 18px;">
+            💌
+          </div>
+          <h3 class="font-serif" style="font-size: clamp(22px, 3.5vw, 30px); margin-bottom: 8px;">The Sealed Vow</h3>
+          <p class="font-serif" style="font-size: 18px; color: var(--champagneLight); font-style: italic; max-width: 500px; margin-bottom: 24px;">
+            "Name the place we Often Visit Together? 🍕"
+          </p>
+
+          <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="position: relative;">
+              <input type="text" id="answerInput4" placeholder="Type our favorite spot..." class="input-field" style="padding-right: 100px;" onkeydown="if(event.key === 'Enter') submitDirectAnswer(4)">
+              <button onclick="submitDirectAnswer(4)" class="btn-gold" style="position: absolute; right: 6px; top: 6px; bottom: 6px; padding: 0 16px; font-size: 12px;">
+                Unlock
+              </button>
+            </div>
+            <div id="feedbackText4" style="font-size: 13px; font-weight: 600; min-height: 20px;"></div>
+            <div>
+              <button onclick="toggleHint(4)" style="background: none; border: none; color: rgba(253, 251, 247, 0.6); font-size: 12px; text-decoration: underline; cursor: pointer;">Need a hint?</button>
+              <p id="hintBox4" class="hidden" style="margin-top: 10px; font-size: 13px; color: var(--roseMist); background: rgba(20, 8, 14, 0.9); padding: 12px; border-radius: 12px; border: 1px solid rgba(244, 202, 195, 0.3); font-style: italic;">
+                "Lets go one more date at that place! 🍕✨"
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unlocked View: 3D Love Letter Envelope -->
+        <div id="unlockedView4" class="hidden" style="text-align: center; padding: 20px 0;">
+          <h3 class="font-serif" style="font-size: 32px; color: var(--pearlWhite); margin-bottom: 8px;">A Letter Sealed For Eternity</h3>
+          <p style="font-size: 14px; color: rgba(253, 251, 247, 0.7); max-width: 480px; margin: 0 auto 30px auto;">
+            Tap on the envelope below to break the wax seal and unfold my private letter to you.
+          </p>
+
+          <div class="envelope-3d-wrap" style="max-width: 520px; margin: 0 auto;">
+            <div id="envelopeFlipCard" class="envelope-card glass-surface" style="padding: 36px 24px; cursor: pointer; border: 1px solid var(--champagne);" onclick="toggleEnvelopeFlip()">
+              
+              <!-- Front Face -->
+              <div class="envelope-front">
+                <div style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--crimsonVelvet), var(--crimsonGlow)); margin: 0 auto 16px auto; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 10px 25px rgba(232, 62, 92, 0.5);">
+                  💌
+                </div>
+                <h4 class="font-serif" style="font-size: 24px; color: #fff; margin-bottom: 6px;">To My Forever Person</h4>
+                <p style="font-size: 11px; letter-spacing: 2px; color: rgba(253, 251, 247, 0.5); text-transform: uppercase; margin-bottom: 20px;">CONFIDENTIAL & SACRED</p>
+                <span class="btn-gold" style="padding: 8px 20px; font-size: 12px; letter-spacing: 1px; display: inline-block;">
+                  Tap to Break Seal
+                </span>
+              </div>
+
+              <!-- Back Face -->
+              <div class="envelope-back" style="position: absolute; inset: 0; padding: 28px; background: #14080e; border-radius: 24px; text-align: left; overflow-y: auto; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(253, 251, 247, 0.1); padding-bottom: 10px; margin-bottom: 16px;">
+                    <span class="font-serif" style="font-size: 18px; color: var(--champagneLight); font-style: italic;">Dearest Ishika,</span>
+                    <span style="font-size: 18px; color: var(--roseMist);">♾️</span>
+                  </div>
+                  <p class="font-serif" style="font-size: 15px; color: rgba(253, 251, 247, 0.9); line-height: 1.7; font-style: italic; margin-bottom: 14px;">
+                    "From the boy who sat quietly in 12th grade wondering why everyone said you were looking at him, to the person who now cherishes every Indore evening and every late-night phone call... there isn't a single memory of you that I take for granted."
+                  </p>
+                  <p class="font-serif" style="font-size: 15px; color: rgba(253, 251, 247, 0.85); line-height: 1.7; font-style: italic;">
+                    "I am sorry for the audit days when work got loud, and for every time I hurt you without knowing. You are my home in the rain, my first kiss at Zoroko, and my favorite date at La Pino'z. No matter what the future tests us with, I chose you then, and I choose you today."
+                  </p>
+                </div>
+                <div style="border-top: 1px solid rgba(253, 251, 247, 0.1); padding-top: 12px; text-align: right;">
+                  <span style="font-size: 12px; letter-spacing: 2px; color: var(--champagne); text-transform: uppercase; font-weight: bold;">P.S. I Love You Ishika!</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <p style="font-size: 11px; color: rgba(253, 251, 247, 0.4); text-transform: uppercase; letter-spacing: 2px; margin-top: 20px;">
+            Tap letter anytime to fold back
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- EDIT PREVIEW MODAL -->
+  <div id="previewEditModal" class="hidden" style="position: fixed; inset: 0; background: rgba(10, 5, 8, 0.95); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 16px;" onclick="closeEditPreview()">
+    <div class="glass-surface" style="width: 100%; max-width: 820px; overflow: hidden; border: 1px solid var(--champagne);" onclick="event.stopPropagation()">
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid rgba(253, 251, 247, 0.1); background: #14080e;">
+        <h4 id="previewEditTitle" class="font-serif" style="font-size: 18px; color: #fff;">Memory Reel</h4>
+        <button onclick="closeEditPreview()" style="background: none; border: none; color: #fff; font-size: 20px; cursor: pointer;">✕</button>
+      </div>
+      <div style="position: relative; width: 100%; padding-top: 56.25%; background: #000;">
+        <iframe id="previewDriveIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT LOGIC (SELF-CONTAINED & BULLETPROOF) -->
+  <script>
+    /* -------------------------------------------------------------
+       0. MASTER PRIVACY GATE (Passcode: 241105)
+    -------------------------------------------------------------- */
+    const MASTER_KEY = '241105';
+
+    function unlockMasterPrivacy() {
+      const input = document.getElementById('masterPasscodeInput');
+      const feedback = document.getElementById('masterPassFeedback');
+      const screen = document.getElementById('masterPrivacyScreen');
+      if (!input) return;
+
+      const cleaned = input.value.replace(/[^a-zA-Z0-9]/g, '').trim();
+      if (cleaned === MASTER_KEY) {
+        if (feedback) {
+          feedback.style.color = '#4ade80';
+          feedback.innerText = "Welcome home, Ishika... ✨";
+        }
+        triggerPetalConfetti();
+
+        setTimeout(() => {
+          if (screen) {
+            screen.style.opacity = '0';
+            screen.style.pointerEvents = 'none';
+            setTimeout(() => screen.classList.add('hidden'), 600);
+          }
+        }, 500);
+      } else {
+        if (feedback) {
+          feedback.style.color = 'var(--crimsonGlow)';
+          feedback.innerText = "Access denied. Only Ishika holds the key. 🌹";
+        }
+        input.value = '';
+        const box = screen.querySelector('.glass-surface-lock');
+        if (box) {
+          box.classList.add('shake');
+          setTimeout(() => box.classList.remove('shake'), 600);
+        }
+      }
+    }
+
+    /* -------------------------------------------------------------
+       1. RELIABLE CHAPTER ANSWERS (FLEXIBLE MATCHING)
+    -------------------------------------------------------------- */
+    const CHAPTER_DATA = {
+      1: {
+        // Target: 8 Feb 2025
+        check: (s) => ['8feb', '8february', '8feb2025', '8february2025', '8thfeb', '08022025', '822025', '0802', '82'].some(k => s.includes(k))
+      },
+      2: {
+        // Target: Pina Colada
+        check: (s) => ['pinacolada', 'colada', 'pina'].some(k => s.includes(k))
+      },
+      3: {
+        // Target: 4 Jan 2026
+        check: (s) => ['4jan', '4january', '4jan2026', '4january2026', '4thjan', '04012026', '412026', '0401', '41'].some(k => s.includes(k))
+      },
+      4: {
+        // Target: La Pino'z
+        check: (s) => ['lapinoz', 'pinoz', 'lapino', 'pino'].some(k => s.includes(k))
+      }
+    };
+
+    let unlockedState = { ch1: false, ch2: false, ch3: false, ch4: false };
+
+    function cleanString(str) {
+      if (!str) return '';
+      return str.toLowerCase().replace(/[^a-z0-9]/g, '').trim();
+    }
+
+    function toggleHint(chNum) {
+      const hint = document.getElementById(`hintBox${chNum}`);
+      if (hint) hint.classList.toggle('hidden');
+    }
+
+    function submitDirectAnswer(chNum) {
+      const input = document.getElementById(`answerInput${chNum}`);
+      const feedback = document.getElementById(`feedbackText${chNum}`);
+      const card = document.getElementById(`cardContainer${chNum}`);
+      if (!input) return;
+
+      const cleaned = cleanString(input.value);
+      const ch = CHAPTER_DATA[chNum];
+
+      if (ch && ch.check(cleaned)) {
+        unlockedState[`ch${chNum}`] = true;
+        if (feedback) {
+          feedback.style.color = '#4ade80';
+          feedback.innerText = "Correct, my love! Unlocking chapter... ✨";
+        }
+        triggerPetalConfetti();
+        updateUI();
+
+        setTimeout(() => {
+          const el = document.getElementById(`chapter-${chNum}`);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      } else {
+        if (feedback) {
+          feedback.style.color = 'var(--crimsonGlow)';
+          feedback.innerText = "Oops! Not quite, my love... Check the hint! 😉";
+        }
+        const hint = document.getElementById(`hintBox${chNum}`);
+        if (hint) hint.classList.remove('hidden');
+        if (card) {
+          card.classList.add('shake');
+          setTimeout(() => card.classList.remove('shake'), 600);
+        }
+      }
+    }
+
+    function updateUI() {
+      let count = 0;
+      for (let i = 1; i <= 4; i++) {
+        const isUnlocked = unlockedState[`ch${i}`];
+        if (isUnlocked) count++;
+
+        const lockView = document.getElementById(`lockView${i}`);
+        const unlockedView = document.getElementById(`unlockedView${i}`);
+        const badge = document.getElementById(`statusBadge${i}`);
+
+        if (isUnlocked) {
+          if (lockView) lockView.classList.add('hidden');
+          if (unlockedView) unlockedView.classList.remove('hidden');
+          if (badge) {
+            badge.style.borderColor = 'rgba(74, 222, 128, 0.4)';
+            badge.style.color = '#4ade80';
+            badge.innerHTML = '🔓 Unlocked';
+          }
+        }
+      }
+
+      const percent = (count / 4) * 100;
+      document.getElementById('questProgressBar').style.width = percent + '%';
+      document.getElementById('progressText').innerText = `${count} / 4 Unlocked`;
+    }
+
+    /* -------------------------------------------------------------
+       2. REELS VAULT (Direct Google Drive IDs)
+    -------------------------------------------------------------- */
+    const vaultEdits = [
+      { id: "1a0ZzBeQ4jAbGLMKC-TITYFCLFEuZuvuw", title: "Reel I", quote: "“Each one whispered, 'She looks at me'...”" },
+      { id: "1ESJ2WWaBI9u3mW62Vg99-q7FKgbofxm2", title: "Reel II", quote: "“A whisper sent through glowing light...”" },
+      { id: "1QlfxRAmqtn-bM_Dq1Y30aAqvfNUzcKfk", title: "Reel III", quote: "“On the 4th, she returned to stage...”" },
+      { id: "1w5-imJWXm_km2Lza3Lrrnen_ykfPy-EY", title: "Reel IV", quote: "“Sitting beside you, I gave you a rose...”" },
+      { id: "1WntNDyYSIG81ffQJ8XNfRzmW2N_Qbpdv", title: "Reel V", quote: "“A sudden kiss that made me softly fall...”" },
+      { id: "1qpb7kwpB_pyWsP1j7nuZfzRWt3AI0uKT", title: "Reel VI", quote: "“Dropping you home was all I wanted then...”" },
+      { id: "1vT9LjjyOybKwUHWvTfclgWKZs8x9iSRc", title: "Reel VII", quote: "“Sorting it out, that's what makes us best...”" },
+      { id: "15X1rme81oW6pjCDVuzvn6rIFBqoGEHJO", title: "Reel VIII", quote: "“I chose you then... I choose today.”" }
+    ];
+
+    function renderVaultEdits() {
+      const grid = document.getElementById('editsVaultGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      vaultEdits.forEach((item) => {
+        const card = document.createElement('div');
+        card.className = "glass-surface";
+        card.style.padding = "16px";
+        card.style.cursor = "pointer";
+        card.style.display = "flex";
+        card.style.flexDirection = "column";
+        card.style.justifyContent = "space-between";
+        card.style.border = "1px solid rgba(212, 175, 55, 0.2)";
+        card.onclick = () => openEditPreview(item.id, item.title);
+
+        card.innerHTML = `
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-family: monospace; font-size: 12px; color: var(--champagne); font-weight: bold; background: rgba(212, 175, 55, 0.15); padding: 4px 10px; border-radius: 9999px;">${item.title}</span>
+              <span style="font-size: 18px;">▶️</span>
+            </div>
+            <p class="font-serif" style="font-size: 14px; color: var(--pearlWhite); font-style: italic; border-left: 2px solid var(--champagne); padding-left: 10px; line-height: 1.5;">
+              ${item.quote}
+            </p>
+          </div>
+          <div style="margin-top: 16px; font-size: 11px; color: var(--champagneLight); text-align: right; text-transform: uppercase; letter-spacing: 1px;">
+            Tap to Watch →
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function openEditPreview(driveId, title) {
+      const modal = document.getElementById('previewEditModal');
+      const iframe = document.getElementById('previewDriveIframe');
+      document.getElementById('previewEditTitle').innerText = title;
+      iframe.src = `https://drive.google.com/file/d/${driveId}/preview?autoplay=1`;
+      modal.classList.remove('hidden');
+    }
+
+    function closeEditPreview() {
+      const modal = document.getElementById('previewEditModal');
+      const iframe = document.getElementById('previewDriveIframe');
+      if (iframe) iframe.src = '';
+      if (modal) modal.classList.add('hidden');
+    }
+
+    /* -------------------------------------------------------------
+       3. 3D LOVE LETTER FLIP
+    -------------------------------------------------------------- */
+    function toggleEnvelopeFlip() {
+      const card = document.getElementById('envelopeFlipCard');
+      if (card) {
+        card.classList.toggle('is-open');
+        triggerPetalConfetti();
+      }
+    }
+
+    let poemFontSize = 18;
+    function adjustPoemFontSize(delta) {
+      poemFontSize = Math.max(14, Math.min(24, poemFontSize + (delta * 2)));
+      const manuscript = document.getElementById('fullPoemManuscript');
+      if (manuscript) manuscript.style.fontSize = poemFontSize + 'px';
+    }
+
+    /* -------------------------------------------------------------
+       4. AMBIENT PARTICLES
+    -------------------------------------------------------------- */
+    const canvas = document.getElementById('starsCanvas');
+    const ctx = canvas ? canvas.getContext('2d') : null;
+    let width, height;
+    let particles = [];
+
+    function resizeCanvas() {
+      if (!canvas) return;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    if (canvas && ctx) {
+      for (let i = 0; i < 35; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: Math.random() * 2 + 1,
+          speedY: Math.random() * 0.4 + 0.1,
+          opacity: Math.random() * 0.5 + 0.2
+        });
+      }
+
+      function drawParticles() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.y -= p.speedY;
+          if (p.y < 0) { p.y = height; p.x = Math.random() * width; }
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(212, 175, 55, ${p.opacity})`;
+          ctx.fill();
+        });
+        requestAnimationFrame(drawParticles);
+      }
+      drawParticles();
+    }
+
+    /* -------------------------------------------------------------
+       5. FALLBACK-SAFE CONFETTI & SOUND
+    -------------------------------------------------------------- */
+    function triggerPetalConfetti() {
+      // Lightweight zero-dependency celebration burst
+      for (let i = 0; i < 15; i++) {
+        const spark = document.createElement('div');
+        spark.innerText = ['❤️', '✨', '🌹', '💖'][Math.floor(Math.random() * 4)];
+        spark.style.position = 'fixed';
+        spark.style.left = (Math.random() * 80 + 10) + 'vw';
+        spark.style.top = '70vh';
+        spark.style.fontSize = (Math.random() * 16 + 18) + 'px';
+        spark.style.pointerEvents = 'none';
+        spark.style.zIndex = '99999';
+        spark.style.transition = 'transform 1.4s ease-out, opacity 1.4s ease-out';
+        document.body.appendChild(spark);
+
+        setTimeout(() => {
+          spark.style.transform = `translate(${(Math.random() - 0.5) * 160}px, -${Math.random() * 220 + 80}px) scale(1.3)`;
+          spark.style.opacity = '0';
+        }, 20);
+
+        setTimeout(() => spark.remove(), 1500);
+      }
+    }
+
+    // Gentle built-in Web Audio chime (no external mp3 needed)
+    let audioCtx = null;
+    let isMelodyPlaying = false;
+    let melodyTimer = null;
+    const scales = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25];
+
+    function playNote(freq) {
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.04, audioCtx.currentTime + 0.2);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 2.5);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 2.6);
+      } catch (e) {}
+    }
+
+    document.getElementById('audioToggleBtn').addEventListener('click', () => {
+      const label = document.getElementById('audioLabel');
+      if (!isMelodyPlaying) {
+        isMelodyPlaying = true;
+        label.innerText = "Playing...";
+        melodyTimer = setInterval(() => {
+          playNote(scales[Math.floor(Math.random() * scales.length)]);
+        }, 1600);
+      } else {
+        isMelodyPlaying = false;
+        clearInterval(melodyTimer);
+        label.innerText = "Music";
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderVaultEdits();
+      updateUI();
+    });
+  </script>
+</body>
+</html>
