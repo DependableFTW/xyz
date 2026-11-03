@@ -282,7 +282,8 @@
             <span style="font-size: 12px; color: #4ade80;">● Online Stream</span>
           </div>
           <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 15px 35px rgba(0,0,0,0.8);">
-            <iframe id="heroDriveIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://drive.google.com/file/d/1TN3WOetxS9yxB4nBJoNv7jm1yrp7lemv/preview?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <!-- Iframe starts empty with no src attribute so it never plays audio in the background -->
+            <iframe id="heroDriveIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -622,9 +623,9 @@
   <!-- SCRIPT LOGIC (SELF-CONTAINED & BULLETPROOF) -->
   <script>
     /* -------------------------------------------------------------
-       0. MASTER PRIVACY GATE (Passcode: 241105)
+       0. MASTER PRIVACY GATE (Passcode: 24112005)
     -------------------------------------------------------------- */
-    const MASTER_KEY = '241105';
+    const MASTER_KEY = '24112005';
 
     function unlockMasterPrivacy() {
       const input = document.getElementById('masterPasscodeInput');
@@ -711,6 +712,15 @@
           feedback.innerText = "Correct, my love! Unlocking chapter... ✨";
         }
         triggerPetalConfetti();
+
+        // Only load and play the main video stream once Chapter 1 has been solved!
+        if (chNum === 1) {
+          const heroIframe = document.getElementById('heroDriveIframe');
+          if (heroIframe && (!heroIframe.src || heroIframe.src === '' || heroIframe.src === window.location.href)) {
+            heroIframe.src = "https://drive.google.com/file/d/1TN3WOetxS9yxB4nBJoNv7jm1yrp7lemv/preview?autoplay=1";
+          }
+        }
+
         updateUI();
 
         setTimeout(() => {
